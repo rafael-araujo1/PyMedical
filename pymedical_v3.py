@@ -46,16 +46,25 @@ while opc != '0':
 |                                                   |
 +===================================================+
 """)
-    opc_aluno = input("Qual seção deseja acessar? ")
+    opc_paciente = input("Qual seção deseja acessar? ")
 
-    if opc_aluno == '1':
+    if opc_paciente == '1':
       system("clear")
       print("[CADASTRAR PACIENTE]\n")
       paciente_nome = input("Insira o nome do paciente: ")
+      paciente_email = input("Insira o email do paciente: ")
       paciente_idade = input("Insira a idade do paciente: ")
       paciente_sexo = input("Insira o sexo do paciente: ")
       paciente_telefone = input("Insira o telefone do paciente: ")
-      paciente_email = input("Insira o email do paciente: ")
+
+      print("""
++==============================================+
+|                                              |
+| x Paciente cadastrado com sucesso            |
+|                                              |
++==============================================+
+""")
+      input("Aperte [ENTER] para continuar")
 
       system("clear")
       print("""+==============================================+
@@ -64,6 +73,74 @@ while opc != '0':
 |                                              |
 +==============================================+
 """)
+
+    elif opc_paciente == '2':
+      system("clear")
+      print("[BUSCAR PACIENTE]\n")
+      paciente_email = input("Insira o email do paciente: ")
+
+      system("clear")
+      print(f"""x Nome: Chico Lopes
+x Email: {paciente_email}
+x Idade: 35
+x Sexo: Masculino
+x Telefone: (84) 94002-8922
+      
++==============================================+
+|                                              |
+| x Esta seção ainda não foi finalizada.       |
+|                                              |
++==============================================+
+""")
+
+    elif opc_paciente == '3':
+      system("clear")
+      print("[ALTERAR DADOS DO PACIENTE]\n")
+      paciente_nome = input("Insira o nome do paciente: ")
+      paciente_email = input("Insira o email do paciente: ")
+      paciente_idade = input("Insira a idade do paciente: ")
+      paciente_sexo = input("Insira o sexo do paciente: ")
+      paciente_telefone = input("Insira o telefone do paciente: ")
+
+      print("""
++==============================================+
+|                                              |
+| x Paciente alterado com sucesso              |
+|                                              |
++==============================================+
+""")
+      input("Aperte [ENTER] para continuar")
+
+      system("clear")
+      print("""+==============================================+
+|                                              |
+| x Esta seção ainda não foi finalizada.       |
+|                                              |
++==============================================+
+""")
+
+    elif opc_paciente == '4':
+      system("clear")
+      print("[EXCLUIR PACIENTE]\n")
+      paciente_email = input("Insira o email do paciente: ")
+
+      print("""
++==============================================+
+|                                              |
+| x Paciente excluído com sucesso              |
+|                                              |
++==============================================+
+""")
+      input("Aperte [ENTER] para continuar")
+
+      system("clear")
+      print("""+==============================================+
+|                                              |
+| x Esta seção ainda não foi finalizada.       |
+|                                              |
++==============================================+
+""")
+
     input("Pressione [ENTER] para voltar")
 
   elif opc == '2':
