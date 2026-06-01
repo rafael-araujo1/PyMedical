@@ -46,7 +46,7 @@ while opc != '0':
 |                                                   |
 +===================================================+
 """)
-    opc_aluno = input("Qual seção deseja acessar? ")
+    opc_paciente = input("Qual seção deseja acessar? ")
 
     system("clear")
     print("""+==============================================+
