@@ -1,6 +1,6 @@
 # PyMedical [V5]
 
-from os import system
+import os
 
 
 pacientes = {
@@ -14,8 +14,7 @@ pacientes = {
 opc = ''
 
 while opc != '0':
-  system("clear")
-  # No Windows: system("cls") 
+  os.system("cls" if os.name == "nt" else "clear")
 
   print("""+======================================+
 | [PyMedical]                          |
@@ -33,7 +32,7 @@ while opc != '0':
   opc = input("Qual seção deseja acessar? ")
 
   if opc == '0':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+=================================================+
 |                                                 |
 | Programa encerrado com sucesso.                 |
@@ -43,7 +42,7 @@ while opc != '0':
 """)
 
   elif opc == '1':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [PACIENTES]                                       |
 |                                                   |
@@ -58,7 +57,7 @@ while opc != '0':
     opc_paciente = input("Qual seção deseja acessar? ")
 
     if opc_paciente == '1':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[CADASTRAR PACIENTE]\n")
       paciente_nome = input("Insira o nome do paciente: ")
       paciente_email = input("Insira o email do paciente: ")
@@ -67,7 +66,7 @@ while opc != '0':
       paciente_telefone = input("Insira o telefone do paciente: ")
 
       pacientes[paciente_email] = [paciente_nome, paciente_idade, paciente_sexo, paciente_telefone]
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print(f"[PACIENTES]\n{pacientes}")
 
       print("""
@@ -80,11 +79,11 @@ while opc != '0':
       input("Aperte [ENTER] para continuar")
 
     elif opc_paciente == '2':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[BUSCAR PACIENTE]\n")
       email = input("Insira o email do paciente: ")
       if email in pacientes:
-        system("clear")
+        os.system("cls" if os.name == "nt" else "clear")
         print(f"""[{pacientes[email][0]}]
 
 x Idade: {pacientes[email][1]}
@@ -96,12 +95,12 @@ x Telefone: {pacientes[email][3]}
       input("Aperte [ENTER] para continuar")
 
     elif opc_paciente == '3':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[ALTERAR DADOS DO PACIENTE]\n")
 
       email = input("Insira um email: ")
       if email in pacientes:
-        system("clear")
+        os.system("cls" if os.name == "nt" else "clear")
         print(f"""[DADOS ATUAIS DO PACIENTE]
               
 x Nome: {pacientes[email][0]}
@@ -131,11 +130,11 @@ x Telefone: {pacientes[email][3]}
         input("Aperte [ENTER] para continuar")
 
     elif opc_paciente == '4':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[EXCLUIR PACIENTE]\n")
       email = input("Insira o email do paciente: ")
       if email in pacientes:
-        system("clear")
+        os.system("cls" if os.name == "nt" else "clear")
         print(f"""[{pacientes[email][0]}]
               
 x Idade:{ pacientes[email][1]}
@@ -160,7 +159,7 @@ x Telefone: {pacientes[email][3]}
       input("Pressione [ENTER] para voltar")
 
   elif opc == '2':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [MÉDICOS]                                         |
 |                                                   |
@@ -175,7 +174,7 @@ x Telefone: {pacientes[email][3]}
     opc_medico = input("Qual seção deseja acessar? ")
 
     if opc_medico == '1':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[CADASTRAR MÉDICO]\n")
       medico_nome = input("Insira o nome do médico: ")
       medico_email = input("Insira o email do médico: ")
@@ -194,7 +193,7 @@ x Telefone: {pacientes[email][3]}
 """)
       input("Aperte [ENTER] para continuar")
 
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -203,11 +202,11 @@ x Telefone: {pacientes[email][3]}
 """)
 
     elif opc_medico == '2':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[BUSCAR MÉDICO]\n")
       medico_crm = input("Insira o CRM do médico: ")
 
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print(f"""x Nome: Chico Lopes
 x Email: chicolopes@gmail.com
 x Especialização: Especial
@@ -218,7 +217,7 @@ x Telefone: (84) 94002-8922
 """)
       input("Aperte [ENTER] para continuar")
 
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -227,7 +226,7 @@ x Telefone: (84) 94002-8922
 """)
 
     elif opc_medico == '3':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[ALTERAR DADOS DO MÉDICO]\n")
       medico_nome = input("Insira o nome do Médico: ")
       medico_email = input("Insira o email do Médico: ")
@@ -246,7 +245,7 @@ x Telefone: (84) 94002-8922
 """)
       input("Aperte [ENTER] para continuar")
 
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -256,7 +255,7 @@ x Telefone: (84) 94002-8922
       print()
 
     elif opc_medico == '4':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[EXCLUIR MÉDICO]\n")
       paciente_email = input("Insira o CRM do Médico: ")
 
@@ -269,7 +268,7 @@ x Telefone: (84) 94002-8922
 """)
       input("Aperte [ENTER] para continuar")
 
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -280,7 +279,7 @@ x Telefone: (84) 94002-8922
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '3':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [CONSULTAS]                                       |
 |                                                   |
@@ -295,7 +294,7 @@ x Telefone: (84) 94002-8922
     opc_consulta = input("Qual seção deseja acessar? ")
 
     if opc_consulta == '1':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[CADASTRAR CONSULTA]\n")
       consulta_codigo = input("Insira o código da Consulta: ")
       consulta_dia = input("Insira o dia da consulta: ")
@@ -312,7 +311,7 @@ x Telefone: (84) 94002-8922
 """)
       input("Aperte [ENTER] para continuar")
 
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -321,11 +320,11 @@ x Telefone: (84) 94002-8922
 """)
 
     elif opc_consulta == '2':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[BUSCAR CONSULTA]\n")
       consulta_codigo = input("Insira o código da Consulta: ")
 
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print(f"""x Código: {consulta_codigo}
 x Dia: 10/10/26
 x Horário: 10:30
@@ -334,7 +333,7 @@ x Médico: 1234
 """)
       input("Aperte [ENTER] para continuar")
 
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -343,7 +342,7 @@ x Médico: 1234
 """)
 
     elif opc_consulta == '3':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[ALTERAR DADOS DA CONSULTA]\n")
       consulta_codigo = input("Insira o código da Consulta: ")
       consulta_dia = input("Insira o dia da consulta: ")
@@ -360,7 +359,7 @@ x Médico: 1234
 """)
       input("Aperte [ENTER] para continuar")
 
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -369,7 +368,7 @@ x Médico: 1234
 """)
 
     elif opc_consulta == '4':
-      system("clear")
+      os.system("cls" if os.name == "nt" else "clear")
       print("[EXCLUIR CONSULTA]\n")
       consulta_codigo = input("Insira o código da Consulta: ")
 
@@ -382,7 +381,7 @@ x Médico: 1234
 """)
       input("Aperte [ENTER] para continuar")
 
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -392,7 +391,7 @@ x Médico: 1234
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '4':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [RELATÓRIOS]                                      |
 |                                                   |
@@ -407,7 +406,7 @@ x Médico: 1234
 """)
     opc_relatorio = input("Qual seção deseja acessar? ")
 
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -417,7 +416,7 @@ x Médico: 1234
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '5':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [SOBRE O SISTEMA]                                 |
 |                                                   |
@@ -434,7 +433,7 @@ x Médico: 1234
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   else:
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+========================================================+
 |                                                        |
 | [ERRO]                                                 |
