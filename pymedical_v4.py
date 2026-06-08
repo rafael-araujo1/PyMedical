@@ -218,7 +218,7 @@ x Telefone: (84) 94002-8922
   
     elif opc_medico == '3':
       system("clear")
-      print("[ALTERAR DADOS DO PACIENTE]\n")
+      print("[ALTERAR DADOS DO MÉDICO]\n")
       medico_nome = input("Insira o nome do Médico: ")
       medico_email = input("Insira o email do Médico: ")
       medico_especializacao = input("Insira a especialização do Médico: ")
