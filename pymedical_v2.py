@@ -1,12 +1,11 @@
 # PyMedical [V2]
 
-from os import system
+import os
 
 opc = ''
 
 while opc != '0':
-  system("clear")
-  # No Windows: system("cls") 
+  os.system("cls" if os.name == "nt" else "clear")
 
   print("""+======================================+
 | [PyMedical]                          |
@@ -24,7 +23,7 @@ while opc != '0':
   opc = input("Qual seção deseja acessar? ")
 
   if opc == '0':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+=================================================+
 |                                                 |
 | Programa encerrado com sucesso.                 |
@@ -34,7 +33,7 @@ while opc != '0':
 """)
     
   elif opc == '1':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [PACIENTES]                                       |
 |                                                   |
@@ -48,7 +47,7 @@ while opc != '0':
 """)
     opc_paciente = input("Qual seção deseja acessar? ")
 
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -58,7 +57,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '2':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [MÉDICOS]                                         |
 |                                                   |
@@ -72,7 +71,7 @@ while opc != '0':
 """)
     opc_medico = input("Qual seção deseja acessar? ")
   
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -82,7 +81,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '3':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [CONSULTAS]                                       |
 |                                                   |
@@ -96,7 +95,7 @@ while opc != '0':
 """)
     opc_consulta = input("Qual seção deseja acessar? ")
   
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -106,7 +105,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '4':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [RELATÓRIOS]                                      |
 |                                                   |
@@ -121,7 +120,7 @@ while opc != '0':
 """)
     opc_relatorio = input("Qual seção deseja acessar? ")
   
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
@@ -131,7 +130,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '5':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===================================================+
 | [SOBRE O SISTEMA]                                 |
 |                                                   |
@@ -148,7 +147,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   else:
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+========================================================+
 |                                                        |
 | [ERRO]                                                 |
