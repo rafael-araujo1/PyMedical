@@ -1,11 +1,11 @@
 # PyMedical [V1]
 
-from os import system
+import os
 
 opc = ''
 
 while opc != '0':
-  system("clear")
+  os.system("cls" if os.name == "nt" else "clear")
   # No Windows: system("cls") 
 
   print("""+======================================+
@@ -24,7 +24,7 @@ while opc != '0':
   opc = input("Qual seção deseja acessar? ")
 
   if opc == '0':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+=================================================+
 |                                                 |
 | Programa encerrado com sucesso.                 |
@@ -34,7 +34,7 @@ while opc != '0':
 """)
     
   elif opc == '1':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 | Boas-Vindas à Seção [PACIENTES]              |
 |                                              |
@@ -45,7 +45,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '2':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 | Boas-Vindas à Seção [MÉDICOS]                |
 |                                              |
@@ -56,7 +56,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '3':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 | Boas-Vindas à Seção [CONSULTAS]              |
 |                                              |
@@ -67,7 +67,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '4':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+===============================================+
 | Boas-Vindas à Seção [RELATÓRIOS]              |
 |                                               |
@@ -78,7 +78,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '5':
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+==============================================+
 | [SOBRE O SISTEMA]                            |
 |                                              |
@@ -89,7 +89,7 @@ while opc != '0':
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
   else:
-    system("clear")
+    os.system("cls" if os.name == "nt" else "clear")
     print("""+========================================================+
 |                                                        |
 | [ERRO]                                                 |
