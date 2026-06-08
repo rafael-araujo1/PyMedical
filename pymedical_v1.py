@@ -6,7 +6,6 @@ opc = ''
 
 while opc != '0':
   os.system("cls" if os.name == "nt" else "clear")
-  # No Windows: system("cls") 
 
   print("""+======================================+
 | [PyMedical]                          |
