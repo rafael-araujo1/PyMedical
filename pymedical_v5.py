@@ -2,6 +2,15 @@
 
 from os import system
 
+
+pacientes = {
+  "michaelkyle@email.com" : ["Michael Kyle", 35, 'M', "(84) 9 1111-1111"],
+  "jaykyle@email.com" : ["Janet Kyle", 35, 'F', "(84) 9 2222-2222"],
+  "jrkyle@email.com" : ["Michael Kyle Jr.", 18, 'M', "(84) 9 3333-3333"],
+  "clairekyle@email.com" : ["Claire Kyle", 16, 'F', "(84) 9 4444-4444"],
+  "kadykyle@email.com" : ["Kady Kyle", 6, 'F', "(84) 9 5555-5555"]
+}
+
 opc = ''
 
 while opc != '0':
@@ -57,6 +66,10 @@ while opc != '0':
       paciente_sexo = input("Insira o sexo do paciente: ")
       paciente_telefone = input("Insira o telefone do paciente: ")
 
+      pacientes[paciente_email] = [paciente_nome, paciente_idade, paciente_sexo, paciente_telefone]
+      system("clear")
+      print(f"[PACIENTES]\n{pacientes}")
+
       print("""
 +==============================================+
 |                                              |
@@ -66,41 +79,40 @@ while opc != '0':
 """)
       input("Aperte [ENTER] para continuar")
 
-      system("clear")
-      print("""+==============================================+
-|                                              |
-| x Esta seção ainda não foi finalizada.       |
-|                                              |
-+==============================================+
-""")
-
     elif opc_paciente == '2':
       system("clear")
       print("[BUSCAR PACIENTE]\n")
-      paciente_email = input("Insira o email do paciente: ")
-
-      system("clear")
-      print(f"""x Nome: Chico Lopes
-x Email: {paciente_email}
-x Idade: 35
-x Sexo: Masculino
-x Telefone: (84) 94002-8922
-      
-+==============================================+
-|                                              |
-| x Esta seção ainda não foi finalizada.       |
-|                                              |
-+==============================================+
-""")
+      email = input("Insira o email do paciente: ")
+      if email in pacientes:
+        system("clear")
+        print(f"""[{pacientes[email][0]}]
+x Idade: pacientes[email][1]
+x Sexo: pacientes[email][2]
+x Telefone: pacientes[email][3]""")
+      else:
+        print("Paciente não encontrado!\n")
+      input("Aperte [ENTER] para continuar")
 
     elif opc_paciente == '3':
       system("clear")
       print("[ALTERAR DADOS DO PACIENTE]\n")
-      paciente_nome = input("Insira o nome do paciente: ")
-      paciente_email = input("Insira o email do paciente: ")
-      paciente_idade = input("Insira a idade do paciente: ")
-      paciente_sexo = input("Insira o sexo do paciente: ")
-      paciente_telefone = input("Insira o telefone do paciente: ")
+
+      email = input("Insira um email: ")
+      if email in pacientes:
+        system("clear")
+        print(f"""[DADOS ATUAIS DO PACIENTE]
+x Nome: pacientes[email][0]
+x Idade: pacientes[email][1]
+x Sexo: pacientes[email][2]
+x Telefone: pacientes[email][3]""")
+
+        print("[NOVOS DADOS]\n")
+        nome = input("Insira o nome do paciente: ")
+        idade = input("Insira a idade do paciente: ")
+        sexo = input("Insira o sexo do paciente: ")
+        telefone = input("Insira o telefone do paciente: ")
+        
+        pacientes[email] = [nome, idade, sexo, telefone]
 
       print("""
 +==============================================+
@@ -109,39 +121,37 @@ x Telefone: (84) 94002-8922
 |                                              |
 +==============================================+
 """)
-      input("Aperte [ENTER] para continuar")
 
-      system("clear")
-      print("""+==============================================+
-|                                              |
-| x Esta seção ainda não foi finalizada.       |
-|                                              |
-+==============================================+
-""")
+      else:
+        print("Paciente não encontrado!")
+      input("Aperte [ENTER] para continuar")
 
     elif opc_paciente == '4':
       system("clear")
       print("[EXCLUIR PACIENTE]\n")
-      paciente_email = input("Insira o email do paciente: ")
-
-      print("""
+      email = input("Insira o email do paciente: ")
+      if email in pacientes:
+        system("clear")
+        print(f"""[{pacientes[email][0]}]
+x Idade: pacientes[email][1]
+x Sexo: pacientes[email][2]
+x Telefone: pacientes[email][3]""")
+        opc_exclusao = input("Realmente deseja excluir o paciente [S/N]? ").upper()
+          if opc_exclusao == 'S':
+            del pacientes[email]
+            print(f"Pacientes: {pacientes}")
+            print("""
 +==============================================+
 |                                              |
 | x Paciente excluído com sucesso              |
 |                                              |
 +==============================================+
 """)
-      input("Aperte [ENTER] para continuar")
-
-      system("clear")
-      print("""+==============================================+
-|                                              |
-| x Esta seção ainda não foi finalizada.       |
-|                                              |
-+==============================================+
-""")
-
-    input("Pressione [ENTER] para voltar")
+          else:
+            print("Exclusão cancelada!")
+      else:
+        print("Paciente não encontrado!\n")
+      input("Pressione [ENTER] para voltar")
 
   elif opc == '2':
     system("clear")
