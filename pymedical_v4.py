@@ -206,17 +206,26 @@ x Telefone: (84) 94002-8922
 |                                              |
 +==============================================+
 """)
+      input("Aperte [ENTER] para continuar")
+
+      system("clear")
+      print("""+==============================================+
+  |                                              |
+  | x Esta seção ainda não foi finalizada.       |
+  |                                              |
+  +==============================================+
+  """)
   
-  elif opc_medico == '3':
-    system("clear")
-    print("[ALTERAR DADOS DO PACIENTE]\n")
-    medico_nome = input("Insira o nome do Médico: ")
-    medico_email = input("Insira o email do Médico: ")
-    medico_especializacao = input("Insira a especialização do Médico: ")
-    medico_crm = input("Insira o CRM do Médico: ")
-    medico_idade = input("Insira a idade do Médico: ")
-    medico_sexo = input("Insira o sexo do Médico: ")
-    medico_telefone = input("Insira o telefone do Médico: ")
+    elif opc_medico == '3':
+      system("clear")
+      print("[ALTERAR DADOS DO PACIENTE]\n")
+      medico_nome = input("Insira o nome do Médico: ")
+      medico_email = input("Insira o email do Médico: ")
+      medico_especializacao = input("Insira a especialização do Médico: ")
+      medico_crm = input("Insira o CRM do Médico: ")
+      medico_idade = input("Insira a idade do Médico: ")
+      medico_sexo = input("Insira o sexo do Médico: ")
+      medico_telefone = input("Insira o telefone do Médico: ")
 
       print("""
 +==============================================+
@@ -228,16 +237,17 @@ x Telefone: (84) 94002-8922
       input("Aperte [ENTER] para continuar")
 
       system("clear")
-      print("""+==============================================+
+      print("""
++==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
 |                                              |
 +==============================================+
 """)
 
-  elif opc_medico == '4':
-    system("clear")
-    print("[EXCLUIR MÉDICO]\n")
+    elif opc_medico == '4':
+      system("clear")
+      print("[EXCLUIR MÉDICO]\n")
       paciente_email = input("Insira o CRM do Médico: ")
 
       print("""
@@ -255,9 +265,9 @@ x Telefone: (84) 94002-8922
 | x Esta seção ainda não foi finalizada.       |
 |                                              |
 +==============================================+
-""")
+  """)
 
-    input("Pressione [ENTER] para voltar ao menu principal... ")
+      input("Pressione [ENTER] para voltar ao menu principal... ")
 
   elif opc == '3':
     system("clear")
@@ -278,7 +288,7 @@ x Telefone: (84) 94002-8922
       system("clear")
       print("[CADASTRAR CONSULTA]\n")
       consulta_codigo = input("Insira o código da Consulta: ")
-      consulta_dia = input("Insira o dia da consulta")
+      consulta_dia = input("Insira o dia da consulta: ")
       consulta_horario = input("Insira o horário da Consulta: ")
       consulta_paciente = input("Insira o email do Paciente: ")
       consulta_medico = input("Insira o CRM do Médico: ")
@@ -303,7 +313,7 @@ x Telefone: (84) 94002-8922
     elif opc_consulta == '2':
       system("clear")
       print("[BUSCAR CONSULTA]\n")
-      consulta_código = input("Insira o código da Consulta: ")
+      consulta_codigo = input("Insira o código da Consulta: ")
 
       system("clear")
       print(f"""x Código: {consulta_codigo}
@@ -323,7 +333,7 @@ x Médico: 1234
       system("clear")
       print("[ALTERAR DADOS DA CONSULTA]\n")
       consulta_codigo = input("Insira o código da Consulta: ")
-      consulta_dia = input("Insira o dia da consulta")
+      consulta_dia = input("Insira o dia da consulta: ")
       consulta_horario = input("Insira o horário da Consulta: ")
       consulta_paciente = input("Insira o email do Paciente: ")
       consulta_medico = input("Insira o CRM do Médico: ")
@@ -359,8 +369,8 @@ x Médico: 1234
 """)
       input("Aperte [ENTER] para continuar")
   
-    system("clear")
-    print("""+==============================================+
+      system("clear")
+      print("""+==============================================+
 |                                              |
 | x Esta seção ainda não foi finalizada.       |
 |                                              |
