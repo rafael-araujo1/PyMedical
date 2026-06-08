@@ -206,6 +206,56 @@ x Telefone: (84) 94002-8922
 |                                              |
 +==============================================+
 """)
+  
+  elif opc_medico == '3':
+    system("clear")
+    print("[ALTERAR DADOS DO PACIENTE]\n")
+    medico_nome = input("Insira o nome do Médico: ")
+    medico_email = input("Insira o email do Médico: ")
+    medico_especializacao = input("Insira a especialização do Médico: ")
+    medico_crm = input("Insira o CRM do Médico: ")
+    medico_idade = input("Insira a idade do Médico: ")
+    medico_sexo = input("Insira o sexo do Médico: ")
+    medico_telefone = input("Insira o telefone do Médico: ")
+
+      print("""
++==============================================+
+|                                              |
+| x Médico alterado com sucesso                |
+|                                              |
++==============================================+
+""")
+      input("Aperte [ENTER] para continuar")
+
+      system("clear")
+      print("""+==============================================+
+|                                              |
+| x Esta seção ainda não foi finalizada.       |
+|                                              |
++==============================================+
+""")
+
+  elif opc_medico == '4':
+    system("clear")
+    print("[EXCLUIR MÉDICO]\n")
+      paciente_email = input("Insira o CRM do Médico: ")
+
+      print("""
++==============================================+
+|                                              |
+| x Médico excluído com sucesso                |
+|                                              |
++==============================================+
+""")
+      input("Aperte [ENTER] para continuar")
+
+      system("clear")
+      print("""+==============================================+
+|                                              |
+| x Esta seção ainda não foi finalizada.       |
+|                                              |
++==============================================+
+""")
 
     input("Pressione [ENTER] para voltar ao menu principal... ")
 
@@ -223,6 +273,91 @@ x Telefone: (84) 94002-8922
 +===================================================+
 """)
     opc_consulta = input("Qual seção deseja acessar? ")
+
+    if opc_consulta == '1':
+      system("clear")
+      print("[CADASTRAR CONSULTA]\n")
+      consulta_codigo = input("Insira o código da Consulta: ")
+      consulta_dia = input("Insira o dia da consulta")
+      consulta_horario = input("Insira o horário da Consulta: ")
+      consulta_paciente = input("Insira o email do Paciente: ")
+      consulta_medico = input("Insira o CRM do Médico: ")
+
+      print("""
++==============================================+
+|                                              |
+| x Consulta cadastrada com sucesso            |
+|                                              |
++==============================================+
+""")
+      input("Aperte [ENTER] para continuar")
+
+      system("clear")
+      print("""+==============================================+
+|                                              |
+| x Esta seção ainda não foi finalizada.       |
+|                                              |
++==============================================+
+""")
+
+    elif opc_consulta == '2':
+      system("clear")
+      print("[BUSCAR CONSULTA]\n")
+      consulta_código = input("Insira o código da Consulta: ")
+
+      system("clear")
+      print(f"""x Código: {consulta_codigo}
+x Dia: 10/10/26
+x Horário: 10:30
+x Paciente: chicolopes@gmail.com
+x Médico: 1234
+      
++==============================================+
+|                                              |
+| x Esta seção ainda não foi finalizada.       |
+|                                              |
++==============================================+
+""")
+
+    elif opc_consulta == '3':
+      system("clear")
+      print("[ALTERAR DADOS DA CONSULTA]\n")
+      consulta_codigo = input("Insira o código da Consulta: ")
+      consulta_dia = input("Insira o dia da consulta")
+      consulta_horario = input("Insira o horário da Consulta: ")
+      consulta_paciente = input("Insira o email do Paciente: ")
+      consulta_medico = input("Insira o CRM do Médico: ")
+
+      print("""
++==============================================+
+|                                              |
+| x Consulta alterada com sucesso              |
+|                                              |
++==============================================+
+""")
+      input("Aperte [ENTER] para continuar")
+
+      system("clear")
+      print("""+==============================================+
+|                                              |
+| x Esta seção ainda não foi finalizada.       |
+|                                              |
++==============================================+
+""")
+
+    elif opc_consulta == '4':
+      system("clear")
+      print("[EXCLUIR CONSULTA]\n")
+      consulta_codigo = input("Insira o código da Consulta: ")
+
+      print("""
++==============================================+
+|                                              |
+| x Consulta excluída com sucesso              |
+|                                              |
++==============================================+
+""")
+      input("Aperte [ENTER] para continuar")
   
     system("clear")
     print("""+==============================================+
