@@ -279,7 +279,7 @@ x Telefone: {medicos[crm][5]}
     elif opc_medico == '4':
       os.system("cls" if os.name == "nt" else "clear")
       print("[EXCLUIR MÉDICO]\n")
-      email = input("Insira o CRM do Médico: ")
+      crm = input("Insira o CRM do Médico: ")
       if crm in medicos:
         os.system("cls" if os.name == "nt" else "clear")
         print(f"""x Nome: {medicos[crm][0]}

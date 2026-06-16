@@ -1,7 +1,11 @@
-# PyMedical [V6]
+# PyMedical [V7]
 
 import os
 
+os.makedirs("database", exist_ok=True)
+arq_pacientes = open("database/pacientes.txt", "wt")
+arq_medicos = open("database/medicos.txt", "wt")
+arq_consultas = open("database/consultas.txt", "wt")
 
 pacientes = {
   # EMAIL: [Nome, Idade, Sexo, Telefone]
@@ -83,29 +87,17 @@ while opc != '0':
       paciente_idade = input("Insira a idade do paciente: ")
       paciente_sexo = input("Insira o sexo do paciente: ")
       paciente_telefone = input("Insira o telefone do paciente: ")
-      if '@' in paciente_email:
-        if paciente_idade.isdigit():
-            if len(paciente_sexo) != 1:
-              pacientes[paciente_email] = [paciente_nome, paciente_idade, paciente_sexo, paciente_telefone]
-              os.system("cls" if os.name == "nt" else "clear")
-              print(f"[PACIENTES]\n{pacientes}")
+      pacientes[paciente_email] = [paciente_nome, paciente_idade, paciente_sexo, paciente_telefone]
+      os.system("cls" if os.name == "nt" else "clear")
+      print(f"[PACIENTES]\n{pacientes}")
 
-              print("""
-    +==============================================+
-    |                                              |
-    | x Paciente cadastrado com sucesso            |
-    |                                              |
-    +==============================================+
-    """)
-            else:
-              print("""
-    +==============================================+
-    |                                              |
-    | x Erro ao cadastrar Paciente. Dados          |
-    |   inválidos                                  |
-    |                                              |
-    +==============================================+
-    """)
+      print("""
++==============================================+
+|                                              |
+| x Paciente cadastrado com sucesso            |
+|                                              |
++==============================================+
+""")
       input("Aperte [ENTER] para continuar")
 
     elif opc_paciente == '2':
@@ -290,7 +282,7 @@ x Telefone: {medicos[crm][5]}
     elif opc_medico == '4':
       os.system("cls" if os.name == "nt" else "clear")
       print("[EXCLUIR MÉDICO]\n")
-      email = input("Insira o CRM do Médico: ")
+      crm = input("Insira o CRM do Médico: ")
       if crm in medicos:
         os.system("cls" if os.name == "nt" else "clear")
         print(f"""x Nome: {medicos[crm][0]}
@@ -488,3 +480,31 @@ x Médico: {consultas[codigo][3]}
 +========================================================+
 """)
     input("Pressione [ENTER] para voltar ao menu principal... ")
+
+
+for email in pacientes:
+  nome = pacientes[email][0]
+  idade = pacientes[email][1]
+  sexo = pacientes[email][2]
+  telefone = pacientes[email][3]
+  arq_pacientes.write(f"{email}, {nome}, {idade}, {sexo}, {telefone}\n")
+arq_pacientes.close()
+
+for crm in medicos:
+  nome = medicos[crm][0]
+  email = medicos[crm][1]
+  especializacao = medicos[crm][2]
+  idade = medicos[crm][3]
+  sexo = medicos[crm][4]
+  telefone = medicos[crm][5]
+  arq_medicos.write(f"{crm}, {nome}, {email}, {especializacao}, {idade}, {sexo}, {telefone}\n")
+arq_medicos.close()
+
+
+for codigo in consultas:
+  dia = consultas[codigo][0]
+  horario = consultas[codigo][1]
+  paciente = consultas[codigo][2]
+  medico = consultas[codigo][3]
+  arq_consultas.write(f"{codigo}, {dia}, {horario}, {paciente}, {medico}\n")
+arq_consultas.close()
