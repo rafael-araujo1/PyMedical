@@ -34,9 +34,8 @@ def carregar_consultas():
                 medico = dados[4]
                 consultas[codigo] = [dia, horario, paciente, medico]
     except FileNotFoundError:
-        pacientes.update(dados_iniciais)
+        consultas.update(dados_iniciais)
         salvar_consultas()
-
 
 
 def cadastrar_consulta():
