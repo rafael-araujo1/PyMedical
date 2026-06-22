@@ -4,7 +4,8 @@ os.makedirs("database", exist_ok=True)
 
 medicos = {}
 
-medicos = {
+def carregar_medicos():
+  dados_iniciais = {
   # CRM: [Nome, Email, Especialização, Idade, Sexo, Telefone]
   "1111111" : ["Tony Honesto Jefferson", "tonyhonesto@email.com", "especial", 15, 'M', "(84) 9 1111-1111"],
   "2222222" : ["Vanessa Scott", "vanessascott@email.com", "especial", 18, 'F', "(84) 9 2222-2222"],
@@ -12,6 +13,30 @@ medicos = {
   "4444444" : ["Jasmine Scott", "jasminescott@email.com", "especial", 35, 'F', "(84) 9 4444-4444"],
   "5555555" : ["Franklin Mumford", "franklinmumford@email.com", "especial", 6, 'M', "(84) 9 5555-5555"]
 }
+  try:
+    arq_medicos = open("database/medicos.txt", "rt")
+    linhas = arq_medicos.readlines()
+    arq_medicos.close()
+
+    if not linhas:
+      medicos.update(dados_iniciais)
+      salvar_pacientes()
+      return
+
+    for linha in linhas:
+      dados = linha.strip().split(', ')
+      if len(dados) == 7:
+        crm = dados[0]
+        nome = dados[1]
+        email = dados[2]
+        especializacao = dados[3]
+        idade = dados[4]
+        sexo = dados [5]
+        telefone = dados[6]
+        medicos[crm] = [nome, email, especializacao, idade, sexo, telefone]
+  except FileNotFoundError:
+    medicos.update(dados_iniciais)
+    salvar_medicos()
 
 def cadastrar_medico():
     os.system("cls" if os.name == "nt" else "clear")
