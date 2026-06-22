@@ -152,3 +152,25 @@ def salvar_pacientes():
         telefone = pacientes[email][3]
         arq_pacientes.write(f"{email}, {nome}, {idade}, {sexo}, {telefone}\n")
     arq_pacientes.close()
+
+
+def listar_pacientes():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("[PACIENTES]\n")
+
+    if not pacientes:
+        print("Não há pacientes cadastrados no sistema.\n")
+
+    else:
+        print(f"{'NOME':<22} | {'EMAIL':<28} | {'IDADE':<5} | {'SEXO':<4} | {'TELEFONE'}")
+        print('-' * 85)
+        for email, dados in pacientes.items():
+            nome = dados[0]
+            idade = dados[1]
+            sexo = dados[2]
+            telefone = dados[3]
+            print(f"{nome:<22} | {email:<28} | {idade:<5} | {sexo:<4} | {telefone}")
+        print('-' * 85)
+
+    input("\nPressione [ENTER] para voltar")
+    

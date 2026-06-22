@@ -136,14 +136,20 @@ while opc != '0':
 """)
     opc_relatorio = input("Qual seção deseja acessar? ")
 
-    os.system("cls" if os.name == "nt" else "clear")
-    print("""+==============================================+
-|                                              |
-| x Esta seção ainda não foi finalizada.       |
-|                                              |
-+==============================================+
-""")
-    input("Pressione [ENTER] para voltar ao menu principal... ")
+    if opc_relatorio == '1':
+        listar_pacientes()
+    
+    elif opc_relatorio == '2':
+        listar_medicos()
+
+    elif opc_relatorio == '3':
+        listar_consultas()
+    
+    # elif opc_relatorio == '4':
+    #     listar_consultas_por_paciente()
+    
+    # elif opc_relatorio == '5':
+    #     listar_consultas_por_medico()
 
   elif opc == '5':
     os.system("cls" if os.name == "nt" else "clear")

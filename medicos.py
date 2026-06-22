@@ -167,3 +167,27 @@ def salvar_medicos():
         telefone = medicos[crm][5]
         arq_medicos.write(f"{crm}, {nome}, {email}, {especializacao}, {idade}, {sexo}, {telefone}\n")
     arq_medicos.close()
+
+
+def listar_medicos():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("[MÉDICOS]\n")
+
+    if not medicos:
+        print("Não há médicos cadastrados no sistema.\n")
+
+    else:
+        print(f"{'NOME':<22} | {'CRM':<28} | {'ESPECIALIZAÇÃO':<28} | {'EMAIL':<28} | {'IDADE':<5} | {'SEXO':<4} | {'TELEFONE'}")
+        print('-' * 140)
+        for crm, dados in medicos.items():
+            nome = dados[0]
+            email = dados[1]
+            especializacao = dados[2]
+            idade = dados[3]
+            sexo = dados[4]
+            telefone = dados[5]
+            print(f"{nome:<22} | {crm:<28} | {especializacao:<28} | {email:<28} | {idade:<5} | {sexo:<4} | {telefone}")
+        print('-' * 140)
+
+    input("\nPressione [ENTER] para voltar")
+    
