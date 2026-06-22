@@ -2,7 +2,10 @@ import os
 
 os.makedirs("database", exist_ok=True)
 
-consultas = {
+consultas = {}
+
+def carregar_consultas():
+    dados_iniciais = {
   # CÓDIGO: [Dia, Horário, Paciente(email), Médico(CRM)]
   "111" : ["segunda-feira", "7:00", "kylejr@email.com", "2222222"],
   "222" : ["terca-feira", "7:00", "michaelkyle@email.com", "3333333"],
@@ -10,6 +13,31 @@ consultas = {
   "444" : ["quinta-feira", "7:00", "kadyklye@email.com", "5555555"],
   "555" : ["sexta-feira", "7:00", "clairekyle@email.com", "1111111"]
 }
+    try:
+        arq_consultas = open("database/consutltas.txt", "rt")
+        linhas = arq_consultas.readlines()
+        arq_consultas.close()
+
+        if not linhas:
+            consultas.update(dados_iniciais)
+            salvar_consultas()
+            return
+        
+
+        for linha in linhas:
+            dados = linha.strip().split(', ')
+            if len(dados) == 5:
+                codigo = dados[0]
+                dia = dados[1]
+                horario = dados[2]
+                paciente = dados[3]
+                medico = dados[4]
+                consultas[codigo] = [dia, horario, paciente, medico]
+    except FileNotFoundError:
+        pacientes.update(dados_iniciais)
+        salvar_consultas()
+
+
 
 def cadastrar_consulta():
     os.system("cls" if os.name == "nt" else "clear")
