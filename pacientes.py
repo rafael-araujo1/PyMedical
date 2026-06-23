@@ -163,14 +163,14 @@ def listar_pacientes():
 
     else:
         print(f"{'NOME':<22} | {'EMAIL':<28} | {'IDADE':<5} | {'SEXO':<4} | {'TELEFONE'}")
-        print('-' * 85)
+        print('-' * 90)
         for email, dados in pacientes.items():
             nome = dados[0]
             idade = dados[1]
             sexo = dados[2]
             telefone = dados[3]
             print(f"{nome:<22} | {email:<28} | {idade:<5} | {sexo:<4} | {telefone}")
-        print('-' * 85)
+            print('-' * 90)
 
     input("\nPressione [ENTER] para voltar")
     
