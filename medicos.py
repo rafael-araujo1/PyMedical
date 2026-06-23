@@ -20,7 +20,7 @@ def carregar_medicos():
 
     if not linhas:
       medicos.update(dados_iniciais)
-      salvar_pacientes()
+      salvar_medicos()
       return
 
     for linha in linhas:
@@ -177,7 +177,7 @@ def listar_medicos():
         print("Não há médicos cadastrados no sistema.\n")
 
     else:
-        print(f"{'NOME':<22} | {'CRM':<28} | {'ESPECIALIZAÇÃO':<28} | {'EMAIL':<28} | {'IDADE':<5} | {'SEXO':<4} | {'TELEFONE'}")
+        print(f"{'NOME':<22} | {'CRM':<10} | {'ESPECIALIZAÇÃO':<28} | {'EMAIL':<28} | {'IDADE':<5} | {'SEXO':<4} | {'TELEFONE'}")
         print('-' * 140)
         for crm, dados in medicos.items():
             nome = dados[0]
@@ -186,8 +186,8 @@ def listar_medicos():
             idade = dados[3]
             sexo = dados[4]
             telefone = dados[5]
-            print(f"{nome:<22} | {crm:<28} | {especializacao:<28} | {email:<28} | {idade:<5} | {sexo:<4} | {telefone}")
-        print('-' * 140)
+            print(f"{nome:<22} | {crm:<10} | {especializacao:<28} | {email:<28} | {idade:<5} | {sexo:<4} | {telefone}")
+            print('-' * 140)
 
     input("\nPressione [ENTER] para voltar")
     
