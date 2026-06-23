@@ -144,12 +144,6 @@ while opc != '0':
 
     elif opc_relatorio == '3':
         listar_consultas()
-    
-    # elif opc_relatorio == '4':
-    #     listar_consultas_por_paciente()
-    
-    # elif opc_relatorio == '5':
-    #     listar_consultas_por_medico()
 
   elif opc == '5':
     os.system("cls" if os.name == "nt" else "clear")
