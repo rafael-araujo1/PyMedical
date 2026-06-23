@@ -128,8 +128,6 @@ while opc != '0':
 | [1] Listar todos os Pacientes                     |
 | [2] Listar todos os Médicos                       |
 | [3] Listar todas as Consultas                     |
-| [4] Listar Consultas por Pacientes                |
-| [5] Listar Consultas por Médicos                  |
 | [0] Voltar ao Menu Principal                      |
 |                                                   |
 +===================================================+
