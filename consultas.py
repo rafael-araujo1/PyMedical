@@ -176,25 +176,3 @@ def listar_consultas():
         print('-' * 100)
 
     input("\nPressione [ENTER] para voltar")
-
-
-listar_consultas_por_paciente():
-    os.system("cls" if os.name == "nt" else "clear")
-    print("[CONSULTAS POR PACIENTE]\n")
-
-    paciente_email = input("Insira o email do paciente: ")
-    consultas_paciente = {codigo: dados for codigo, dados in consultas.items() if dados[2] == paciente_email}
-
-    if not consultas_paciente:
-        print("Não há consultas cadastradas para este paciente.\n")
-    else:
-        print(f"{'CÓDIGO':<10} | {'DIA':<12} | {'HORÁRIO':<12} | {'MÉDICO':<28}")
-        print('-' * 70)
-        for codigo, dados in consultas_paciente.items():
-            dia = dados[0]
-            horario = dados[1]
-            medico = dados[3]
-            print(f"{codigo:<10} | {dia:<12} | {horario:<12} | {medico:<28}")
-        print('-' * 70)
-
-    input("\nPressione [ENTER] para voltar")
