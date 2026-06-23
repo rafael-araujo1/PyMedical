@@ -165,14 +165,14 @@ def listar_consultas():
         print("Não há consultas cadastradas no sistema.\n")
 
     else:
-        print(f"{'CÓDIGO':<10} | {'DIA':<12} | {'HORÁRIO':<12} | {'PACIENTE':<28} | {'MÉDICO':<28}")
+        print(f"{'CÓDIGO':<10} | {'DIA':<14} | {'HORÁRIO':<12} | {'PACIENTE':<28} | {'MÉDICO':<28}")
         print('-' * 100)
         for codigo, dados in consultas.items():
             dia = dados[0]
             horario = dados[1]
             paciente = dados[2]
             medico = dados[3]
-            print(f"{codigo:<10} | {dia:<12} | {horario:<12} | {paciente:<28} | {medico:<28}")
-        print('-' * 100)
+            print(f"{codigo:<10} | {dia:<14} | {horario:<12} | {paciente:<28} | {medico:<28}")
+            print('-' * 100)
 
     input("\nPressione [ENTER] para voltar")
