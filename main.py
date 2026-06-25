@@ -20,7 +20,7 @@ while opc != '0':
 | [1] Pacientes                        |
 | [2] Médicos                          |
 | [3] Consultas                        |
-| [4] Relatório                        |
+| [4] Relatórios                       |
 | [5] Sobre o Sistema                  |
 | [0] Sair                             |
 |                                      |
@@ -128,6 +128,8 @@ while opc != '0':
 | [1] Listar todos os Pacientes                     |
 | [2] Listar todos os Médicos                       |
 | [3] Listar todas as Consultas                     |
+| [4] Listar as Consultas de um Paciente            |
+| [5] Listar as Consultas de um Médico              |
 | [0] Voltar ao Menu Principal                      |
 |                                                   |
 +===================================================+
@@ -142,6 +144,12 @@ while opc != '0':
 
     elif opc_relatorio == '3':
         listar_consultas()
+
+    elif opc_relatorio == '4':
+       listar_consultas_paciente()
+    
+    elif opc_relatorio == '5':
+       listar_consultas_medico()
 
   elif opc == '5':
     os.system("cls" if os.name == "nt" else "clear")
