@@ -162,17 +162,78 @@ def listar_consultas():
     print("[CONSULTAS]\n")
 
     if not consultas:
-        print("Não há consultas cadastradas no sistema.\n")
+        print("\nNão há consultas cadastradas no sistema.\n")
 
     else:
-        print(f"{'CÓDIGO':<10} | {'DIA':<14} | {'HORÁRIO':<12} | {'PACIENTE':<28} | {'MÉDICO':<28}")
-        print('-' * 100)
+        print('-' * 107)
+        print(f"| {'CÓDIGO':<10} | {'DIA':<14} | {'HORÁRIO':<12} | {'PACIENTE':<28} | {'MÉDICO':<28}|")
+        print('-' * 107)
         for codigo, dados in consultas.items():
             dia = dados[0]
             horario = dados[1]
             paciente = dados[2]
             medico = dados[3]
-            print(f"{codigo:<10} | {dia:<14} | {horario:<12} | {paciente:<28} | {medico:<28}")
-            print('-' * 100)
+            print(f"| {codigo:<10} | {dia:<14} | {horario:<12} | {paciente:<28} | {medico:<28}|")
+            print('-' * 107)
 
     input("\nPressione [ENTER] para voltar")
+
+
+def listar_consultas_paciente():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("[CONSULTAS POR PACIENTE]\n")
+    paciente_email = input("Insira o email do Paciente: ")
+    email_encontrado = False
+
+    print(f"\nConsultas marcadas para o(a) paciente {paciente_email}:\n")
+    print('-' * 107)
+    print(f"| {'CÓDIGO':<10} | {'DIA':<14} | {'HORÁRIO':<12} | {'PACIENTE':<28} | {'MÉDICO':<28}|")
+    print('-' * 107)
+
+    for codigo, dados in consultas.items():
+        dia = dados[0]
+        horario = dados[1]
+        paciente = dados[2]
+        medico = dados[3]
+
+        if paciente_email == paciente:
+            print(f"| {codigo:<10} | {dia:<14} | {horario:<12} | {paciente:<28} | {medico:<28}|")
+
+            email_encontrado = True
+    
+    if not email_encontrado:
+        print(f"\nNenhuma consulta marcada para {paciente_email}")
+    else:
+        print('-' * 107)
+    
+    input("\nPressione [ENTER] para voltar")
+
+
+def listar_consultas_medico():
+    os.system("cls" if os.name == "nt" else "clear")
+    print("[CONSULTAS POR MÉDICO]\n")
+    medico_crm = input("Insira o CRM do Médico: ")
+    crm_encontrado = False
+    
+    print(f"\nConsultas marcadas para o(a) doutor(a) {medico_crm}:\n")
+    print('-' * 107)
+    print(f"| {'CÓDIGO':<10} | {'DIA':<14} | {'HORÁRIO':<12} | {'PACIENTE':<28} | {'MÉDICO':<28}|")
+    print('-' * 107)
+
+    for codigo, dados in consultas.items():
+        dia = dados[0]
+        horario = dados[1]
+        paciente = dados[2]
+        medico = dados[3]
+
+        if medico_crm == medico:
+            print(f"| {codigo:<10} | {dia:<14} | {horario:<12} | {paciente:<28} | {medico:<28}|")
+
+            crm_encontrado = True
+    
+    if not crm_encontrado:
+        print(f"Nenhuma consulta marcada para o(a) doutor(a) {medico_crm}")
+    else:
+        print('-' * 107)
+    
+    input("\nPressione [ENTER para voltar]")
