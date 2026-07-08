@@ -144,12 +144,12 @@ def buscar_medico():
 
     if crm in medicos and medicos[crm][7] == True:
         os.system("cls" if os.name == "nt" else "clear")
-        print(f"""[{medicos[crm][0]}]")
-x CPF: {medicos[crm][6]}")
-x Email: {medicos[crm][1]}")
-x Especialização: {medicos[crm][2]}")
-x Idade: {medicos[crm][3]}")
-x Sexo: {medicos[crm][4]}")
+        print(f"""[{medicos[crm][0]}]
+x CPF: {medicos[crm][6]}
+x Email: {medicos[crm][1]}
+x Especialização: {medicos[crm][2]}
+x Idade: {medicos[crm][3]}
+x Sexo: {medicos[crm][4]}
 x Telefone: {medicos[crm][5]}
 """)
         
@@ -265,11 +265,12 @@ def listar_medicos():
     if not medicos_ativos:
         print("Não há médicos ativos cadastrados no sistema.\n")
     else:
-        print(f"{'NOME':<22} | {'CRM':<10} | {'CPF':<15} | {'ESPECIALIZAÇÃO':<15} | {'EMAIL':<25} | {'IDADE':<5} | {'SEXO':<4} | {'TELEFONE'}")
-        print('-' * 130)
+        print('-' * 136)
+        print(f"| {'NOME':<22} | {'CRM':<10} | {'CPF':<15} | {'ESPECIALIZAÇÃO':<15} | {'EMAIL':<25} | {'IDADE':<5} | {'SEXO':<4} | {'TELEFONE':<15} |")
+        print('-' * 136)
         for crm, dados in medicos_ativos.items():
-            print(f"{dados[0]:<22} | {crm:<10} | {dados[6]:<15} | {dados[2]:<15} | {dados[1]:<25} | {dados[3]:<5} | {dados[4]:<4} | {dados[5]}")
-            print('-' * 130)
+            print(f"| {dados[0]:<22} | {crm:<10} | {dados[6]:<15} | {dados[2]:<15} | {dados[1]:<25} | {dados[3]:<5} | {dados[4]:<4} | {dados[5]:<15} |")
+            print('-' * 136)
 
     input("\nPressione [ENTER] para voltar")
 
@@ -281,17 +282,17 @@ def listar_medicos_especialidade():
     encontrou_medico = False
     
     print(f"\nMédicos encontrados na especialização: {especializacao.title()}\n")
-    print(f"{'NOME':<22} | {'CRM':<10} | {'CPF':<15} | {'EMAIL':<25} | {'TELEFONE'}")
-    print('-' * 105)
+    print('-' * 103)
+    print(f"| {'NOME':<22} | {'CRM':<10} | {'CPF':<15} | {'EMAIL':<25} | {'TELEFONE':<15} |")
+    print('-' * 103)
     
     for crm, dados in medicos.items():
         if dados[7] == True and dados[2].upper() == especializacao.upper():
-            print(f"{dados[0]:<22} | {crm:<10} | {dados[6]:<15} | {dados[1]:<25} | {dados[5]}")
-            print('-' * 105)
+            print(f"| {dados[0]:<22} | {crm:<10} | {dados[6]:<15} | {dados[1]:<25} | {dados[5]:<15} |")
+            print('-' * 103)
             encontrou_medico = True
             
     if not encontrou_medico:
-        print(f"Não há médicos especializados em '{especializacao}'.")
-        print('-' * 105)
+        print(f"\nNão há médicos especializados em '{especializacao}'.")
         
     input("\nPressione [ENTER] para voltar")
