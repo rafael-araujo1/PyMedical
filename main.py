@@ -3,18 +3,16 @@ from pacientes import *
 from medicos import *
 from consultas import *
 
-
 carregar_pacientes()
 carregar_medicos()
 carregar_consultas()
 
-
 opc = ''
 
 while opc != '0':
-  os.system("cls" if os.name == "nt" else "clear")
+    os.system("cls" if os.name == "nt" else "clear")
   
-  print("""+======================================+
+    print("""+======================================+
 | [PyMedical]                          |
 |                                      |
 | [1] Pacientes                        |
@@ -27,11 +25,11 @@ while opc != '0':
 +======================================+
 """)
 
-  opc = input("Qual seção deseja acessar? ")
+    opc = input("Qual seção deseja acessar? ")
 
-  if opc == '0':
-    os.system("cls" if os.name == "nt" else "clear")
-    print("""+=================================================+
+    if opc == '0':
+        os.system("cls" if os.name == "nt" else "clear")
+        print("""+=================================================+
 |                                                 |
 | Programa encerrado com sucesso.                 |
 | Obrigado por utilizar nossos serviços! :)       |
@@ -39,9 +37,9 @@ while opc != '0':
 +=================================================+
 """)
 
-  elif opc == '1':
-    os.system("cls" if os.name == "nt" else "clear")
-    print("""+===================================================+
+    elif opc == '1':
+        os.system("cls" if os.name == "nt" else "clear")
+        print("""+===================================================+
 | [PACIENTES]                                       |
 |                                                   |
 | [1] Cadastrar novo Paciente                       |
@@ -52,23 +50,23 @@ while opc != '0':
 |                                                   |
 +===================================================+
 """)
-    opc_paciente = input("Qual seção deseja acessar? ")
+        opc_paciente = input("Qual seção deseja acessar? ")
 
-    if opc_paciente == '1':
-        cadastrar_paciente()
+        if opc_paciente == '1':
+            cadastrar_paciente()
 
-    elif opc_paciente == '2':
-        buscar_paciente()
+        elif opc_paciente == '2':
+            buscar_paciente()
 
-    elif opc_paciente == '3':
-        atualizar_paciente()
+        elif opc_paciente == '3':
+            atualizar_paciente()
 
-    elif opc_paciente == '4':
-        excluir_paciente()
+        elif opc_paciente == '4':
+            excluir_paciente()
 
-  elif opc == '2':
-    os.system("cls" if os.name == "nt" else "clear")
-    print("""+===================================================+
+    elif opc == '2':
+        os.system("cls" if os.name == "nt" else "clear")
+        print("""+===================================================+
 | [MÉDICOS]                                         |
 |                                                   |
 | [1] Cadastrar novo Médico                         |
@@ -79,23 +77,23 @@ while opc != '0':
 |                                                   |
 +===================================================+
 """)
-    opc_medico = input("Qual seção deseja acessar? ")
+        opc_medico = input("Qual seção deseja acessar? ")
 
-    if opc_medico == '1':
-        cadastrar_medico()
+        if opc_medico == '1':
+            cadastrar_medico()
 
-    elif opc_medico == '2':
-        buscar_medico()
+        elif opc_medico == '2':
+            buscar_medico()
 
-    elif opc_medico == '3':
-        atualizar_medico()
+        elif opc_medico == '3':
+            atualizar_medico()
 
-    elif opc_medico == '4':
-        excluir_medico()
+        elif opc_medico == '4':
+            excluir_medico()
 
-  elif opc == '3':
-    os.system("cls" if os.name == "nt" else "clear")
-    print("""+===================================================+
+    elif opc == '3':
+        os.system("cls" if os.name == "nt" else "clear")
+        print("""+===================================================+
 | [CONSULTAS]                                       |
 |                                                   |
 | [1] Cadastrar uma nova Consulta                   |
@@ -106,23 +104,23 @@ while opc != '0':
 |                                                   |
 +===================================================+
 """)
-    opc_consulta = input("Qual seção deseja acessar? ")
+        opc_consulta = input("Qual seção deseja acessar? ")
 
-    if opc_consulta == '1':
-        cadastrar_consulta()
+        if opc_consulta == '1':
+            cadastrar_consulta()
 
-    elif opc_consulta == '2':
-        buscar_consulta()
+        elif opc_consulta == '2':
+            buscar_consulta()
 
-    elif opc_consulta == '3':
-        atualizar_consulta()
+        elif opc_consulta == '3':
+            atualizar_consulta()
 
-    elif opc_consulta == '4':
-        excluir_consulta()
+        elif opc_consulta == '4':
+            excluir_consulta()
 
-  elif opc == '4':
-    os.system("cls" if os.name == "nt" else "clear")
-    print("""+===================================================+
+    elif opc == '4':
+        os.system("cls" if os.name == "nt" else "clear")
+        print("""+===================================================+
 | [RELATÓRIOS]                                      |
 |                                                   |
 | [1] Listar todos os Pacientes                     |
@@ -130,30 +128,38 @@ while opc != '0':
 | [3] Listar todas as Consultas                     |
 | [4] Listar as Consultas de um Paciente            |
 | [5] Listar as Consultas de um Médico              |
+| [6] Listar Consultas por Período                  |
+| [7] Listar Médicos por Especialidade              |
 | [0] Voltar ao Menu Principal                      |
 |                                                   |
 +===================================================+
 """)
-    opc_relatorio = input("Qual seção deseja acessar? ")
+        opc_relatorio = input("Qual seção deseja acessar? ")
 
-    if opc_relatorio == '1':
-        listar_pacientes()
-    
-    elif opc_relatorio == '2':
-        listar_medicos()
+        if opc_relatorio == '1':
+            listar_pacientes()
+        
+        elif opc_relatorio == '2':
+            listar_medicos()
 
-    elif opc_relatorio == '3':
-        listar_consultas()
+        elif opc_relatorio == '3':
+            listar_consultas()
 
-    elif opc_relatorio == '4':
-       listar_consultas_paciente()
-    
-    elif opc_relatorio == '5':
-       listar_consultas_medico()
+        elif opc_relatorio == '4':
+            listar_consultas_paciente()
+        
+        elif opc_relatorio == '5':
+            listar_consultas_medico()
+            
+        elif opc_relatorio == '6':
+            listar_consultas_por_periodo()
+            
+        elif opc_relatorio == '7':
+            listar_medicos_especialidade()
 
-  elif opc == '5':
-    os.system("cls" if os.name == "nt" else "clear")
-    print("""+===================================================+
+    elif opc == '5':
+        os.system("cls" if os.name == "nt" else "clear")
+        print("""+===================================================+
 | [SOBRE O SISTEMA]                                 |
 |                                                   |
 | Sistema de gestão para clínicas médicas.          |
@@ -166,19 +172,18 @@ while opc != '0':
 |                                                   |
 +===================================================+
 """)
-    input("Pressione [ENTER] para voltar ao menu principal... ")
+        input("Pressione [ENTER] para voltar ao menu principal... ")
 
-  else:
-    os.system("cls" if os.name == "nt" else "clear")
-    print("""+========================================================+
+    else:
+        os.system("cls" if os.name == "nt" else "clear")
+        print("""+========================================================+
 |                                                        |
 | [ERRO]                                                 |
 | Opção Inválida! Por favor, insira uma opção válida     |
 |                                                        |
 +========================================================+
 """)
-    input("Pressione [ENTER] para voltar ao menu principal... ")
-
+        input("Pressione [ENTER] para voltar ao menu principal... ")
 
 salvar_pacientes()
 salvar_medicos()
