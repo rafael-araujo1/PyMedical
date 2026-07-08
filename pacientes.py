@@ -35,7 +35,7 @@ def carregar_pacientes():
         
         for linha in linhas:
             dados = linha.strip().split(', ')
-            if len(dados) == 6:
+            if len(dados) == 7:
                 email = dados[0]
                 nome = dados[1]
                 idade = int(dados[2])
@@ -231,10 +231,11 @@ def listar_pacientes():
     if not pacientes_ativos:
         print("Não há pacientes ativos cadastrados no sistema.\n")
     else:
-        print(f"{'NOME':<22} | {'EMAIL':<28} | {'CPF':<15} | {'IDADE':<5} | {'SEXO':<4} | {'TELEFONE'}")
-        print('-' * 110)
+        print('-' * 108)
+        print(f"| {'NOME':<22} | {'EMAIL':<28} | {'CPF':<15} | {'IDADE':<5} | {'SEXO':<4} | {'TELEFONE':<15} |")
+        print('-' * 108)
         for email, dados in pacientes_ativos.items():
-            print(f"{dados[0]:<22} | {email:<28} | {dados[4]:<15} | {dados[1]:<5} | {dados[2]:<4} | {dados[3]}")
-            print('-' * 110)
+            print(f"| {dados[0]:<22} | {email:<28} | {dados[4]:<15} | {dados[1]:<5} | {dados[2]:<4} | {dados[3]:<15} |")
+            print('-' * 108)
 
     input("\nPressione [ENTER] para voltar")
