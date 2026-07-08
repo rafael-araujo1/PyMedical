@@ -47,7 +47,7 @@ def carregar_consultas():
         
         for linha in linhas:
             dados = linha.strip().split(', ')
-            if len(dados) == 5:
+            if len(dados) == 6:
                 codigo = dados[0]
                 dia = dados[1]
                 horario = dados[2]
@@ -133,10 +133,10 @@ def buscar_consulta():
     
     if codigo in consultas and consultas[codigo][4] == True:
         os.system("cls" if os.name == "nt" else "clear")
-        print(f"""[CONSULTA {codigo}]")
-x Dia: {consultas[codigo][0]}")
-x Horário: {consultas[codigo][1]}")
-x Paciente: {consultas[codigo][2]}")
+        print(f"""[CONSULTA {codigo}]
+x Dia: {consultas[codigo][0]}
+x Horário: {consultas[codigo][1]}
+x Paciente: {consultas[codigo][2]}
 x Médico: {consultas[codigo][3]}
 """)
     else:
@@ -262,13 +262,11 @@ def listar_consultas_paciente():
     for codigo, dados in consultas.items():
         if dados[4] == True and paciente_email == dados[2]:
             print(f"| {codigo:<10} | {dados[0]:<14} | {dados[1]:<12} | {dados[2]:<28} | {dados[3]:<28}|")
+            print('-' * 107)
             email_encontrado = True
     
     if not email_encontrado:
         print(f"\nNenhuma consulta ativa marcada para {paciente_email}")
-        print('-' * 107)
-    else:
-        print('-' * 107)
     
     input("\nPressione [ENTER] para voltar")
 
@@ -286,15 +284,13 @@ def listar_consultas_medico():
     for codigo, dados in consultas.items():
         if dados[4] == True and medico_crm == dados[3]:
             print(f"| {codigo:<10} | {dados[0]:<14} | {dados[1]:<12} | {dados[2]:<28} | {dados[3]:<28}|")
+            print('-' * 107)
             crm_encontrado = True
     
     if not crm_encontrado:
         print(f"\nNenhuma consulta ativa marcada para o(a) doutor(a) {medico_crm}")
-        print('-' * 107)
-    else:
-        print('-' * 107)
     
-    input("\nPressione [ENTER para voltar]")
+    input("\nPressione [ENTER] para voltar")
 
 def listar_consultas_por_periodo():
     os.system("cls" if os.name == "nt" else "clear")
@@ -333,14 +329,12 @@ def listar_consultas_por_periodo():
                 data_consulta = datetime.strptime(dados[0], "%d/%m/%Y").date()
                 if data_inicio <= data_consulta <= data_fim:
                     print(f"| {codigo:<10} | {dados[0]:<14} | {dados[1]:<12} | {dados[2]:<28} | {dados[3]:<28}|")
+                    print('-' * 107)
                     encontrou_consulta = True
             except ValueError:
                 continue
 
     if not encontrou_consulta:
-        print(f"| Nenhuma consulta encontrada neste período.{' '*63}|")
-        print('-' * 107)
-    else:
-        print('-' * 107)
+        print(f"\nNenhuma consulta encontrada neste período.")
 
     input("\nPressione [ENTER] para voltar")
