@@ -119,7 +119,6 @@ def buscar_paciente():
     print("[BUSCAR PACIENTE]\n")
     email = input("Insira o email do paciente: ")
     
-    # Exibe apenas se existir e não estiver deletado (Soft Delete)
     if email in pacientes and pacientes[email][5] == True:
         os.system("cls" if os.name == "nt" else "clear")
         print(f"[{pacientes[email][0]}]")
@@ -197,7 +196,6 @@ def excluir_paciente():
         opc_exclusao = input("[S/N]: ").upper()
         
         if opc_exclusao == 'S':
-            # [span_2](start_span)SOFT DELETE: Muda o status para False[span_2](end_span)
             pacientes[email][5] = False
             print("\n+==============================================+")
             print("| x Paciente excluído com sucesso              |")
