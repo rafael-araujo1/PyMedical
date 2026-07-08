@@ -18,10 +18,14 @@ def validar_crm(crm):
     return re.match(r"^[A-Z]{2} \d{6}$", crm)
 
 def carregar_medicos():
-    # [Nome, Email, Especialização, Idade, Sexo, Telefone, CPF, Status_Ativo]
+    # CRM: [Nome, Email, Especialização, Idade, Sexo, Telefone, CPF, Status_Ativo]
     dados_iniciais = {
-        "SP 111111" : ["Tony Honesto Jefferson", "tonyhonesto@email.com", "Pediatria", 45, 'M', "(84) 91111-1111", "111.111.111-11", True],
-        "RJ 222222" : ["Vanessa Scott", "vanessascott@email.com", "Cardiologia", 38, 'F', "(84) 92222-2222", "222.222.222-22", True]
+        "RN 111111" : ["Tony Honesto Jefferson", "tonyhonesto@email.com", "Clínica Geral", 15, 'M', "(84) 91111-1111", "111.111.111-11", True],
+        "RN 222222" : ["Vanessa Scott", "vanessascott@email.com", "Clínica Geral", 18, 'F', "(84) 92222-2222", "222.222.222-22", True],
+        "RN 333333" : ["Calvin Scott", "calvinscott@email.com", "Clínica Geral", 35, 'F', "(84) 93333-3333", "333.333.333-33", True],
+        "RN 444444" : ["Jasmine Scott", "jasminescott@email.com", "Clínica Geral", 35, 'F', "(84) 94444-4444", "444.444.444-44", True],
+        "RN 555555" : ["Franklin Mumford", "franklinmumford@email.com", "Clínica Geral", 6, 'F', "(84) 95555-5555", "555.555.555-55", True]
+
     }
     try:
         arq_medicos = open("database/medicos.txt", "rt")
@@ -71,7 +75,7 @@ def cadastrar_medico():
     
     crm_valido = False
     while not crm_valido:
-        crm = input("Insira o CRM (ex: SP 123456): ").upper()
+        crm = input("Insira o CRM [UF 123456]: ").upper()
         if not validar_crm(crm):
             print("Erro: O CRM deve seguir o formato 'UF 123456'.")
         elif crm in medicos:
@@ -83,9 +87,9 @@ def cadastrar_medico():
 
     email_valido = False
     while not email_valido:
-        email = input("Insira o email (ex: nome@email.com): ")
+        email = input("Insira o email [nome@email.com]: ")
         if not validar_email(email):
-            print("Erro: O email deve conter '@' e '.' após o '@'.")
+            print("Erro: O email deve conter '@.'")
         else:
             email_valido = True
 
@@ -98,11 +102,11 @@ def cadastrar_medico():
             idade = int(idade_input)
             idade_valida = True
         else:
-            print("Erro: A idade deve ser um número inteiro maior que 0.")
+            print("Erro: A idade deve ser maior que 0.")
 
     sexo_valido = False
     while not sexo_valido:
-        sexo = input("Insira o sexo (M/F): ").upper()
+        sexo = input("Insira o sexo [M/F]: ").upper()
         if sexo in ['M', 'F']:
             sexo_valido = True
         else:
@@ -110,7 +114,7 @@ def cadastrar_medico():
 
     telefone_valido = False
     while not telefone_valido:
-        telefone = input("Insira o telefone no formato (11) 91111-1111: ")
+        telefone = input("Insira o telefone [(11) 91111-1111]: ")
         if validar_telefone(telefone):
             telefone_valido = True
         else:
@@ -118,7 +122,7 @@ def cadastrar_medico():
 
     cpf_valido = False
     while not cpf_valido:
-        cpf = input("Insira o CPF no formato 111.111.111-11: ")
+        cpf = input("Insira o CPF [111.111.111-11]: ")
         if validar_cpf(cpf):
             cpf_valido = True
         else:
@@ -126,9 +130,11 @@ def cadastrar_medico():
 
     medicos[crm] = [nome, email, especializacao, idade, sexo, telefone, cpf, True]
     
-    print("\n+==============================================+")
-    print("| x Médico cadastrado com sucesso              |")
-    print("+==============================================+\n")
+    print("""\n+==============================================+
+|                                              |
+| x Médico cadastrado com sucesso              |
+|                                              |
++==============================================+\n""")
     input("Aperte [ENTER] para continuar")
 
 def buscar_medico():
@@ -138,15 +144,17 @@ def buscar_medico():
 
     if crm in medicos and medicos[crm][7] == True:
         os.system("cls" if os.name == "nt" else "clear")
-        print(f"[{medicos[crm][0]}]")
-        print(f"x CPF: {medicos[crm][6]}")
-        print(f"x Email: {medicos[crm][1]}")
-        print(f"x Especialização: {medicos[crm][2]}")
-        print(f"x Idade: {medicos[crm][3]}")
-        print(f"x Sexo: {medicos[crm][4]}")
-        print(f"x Telefone: {medicos[crm][5]}")
+        print(f"""[{medicos[crm][0]}]")
+x CPF: {medicos[crm][6]}")
+x Email: {medicos[crm][1]}")
+x Especialização: {medicos[crm][2]}")
+x Idade: {medicos[crm][3]}")
+x Sexo: {medicos[crm][4]}")
+x Telefone: {medicos[crm][5]}
+""")
+        
     else:
-        print("Médico não encontrado ou foi excluído do sistema!\n")
+        print("Médico não encontrado!\n")
     input("Aperte [ENTER] para continuar")
 
 def atualizar_medico():
@@ -157,16 +165,25 @@ def atualizar_medico():
     
     if crm in medicos and medicos[crm][7] == True:
         os.system("cls" if os.name == "nt" else "clear")
-        print(f"[DADOS ATUAIS]\nNome: {medicos[crm][0]}\nEmail: {medicos[crm][1]}\nEspecialização: {medicos[crm][2]}\nIdade: {medicos[crm][3]}\nSexo: {medicos[crm][4]}\nTelefone: {medicos[crm][5]}\nCPF: {medicos[crm][6]}\n")
+        print(f"""[DADOS ATUAIS]\
+Nome: {medicos[crm][0]}
+Email: {medicos[crm][1]}
+Especialização: {medicos[crm][2]}
+Idade: {medicos[crm][3]}
+Sexo: {medicos[crm][4]}
+Telefone: {medicos[crm][5]}
+CPF: {medicos[crm][6]}
+""")
+        
         print("[NOVOS DADOS]")
         
         nome = input("Insira o novo nome: ")
 
         email_valido = False
         while not email_valido:
-            email = input("Insira o novo email (ex: nome@email.com): ")
+            email = input("Insira o novo email [nome@email.com]: ")
             if not validar_email(email):
-                print("Erro: O email deve conter '@' e '.' após o '@'.")
+                print("Erro: O email deve conter '@.'")
             else:
                 email_valido = True
 
@@ -179,7 +196,7 @@ def atualizar_medico():
                 idade = int(idade_input)
                 idade_valida = True
             else:
-                print("Erro: A idade deve ser um número inteiro maior que 0.")
+                print("Erro: A idade deve ser maior que 0.")
 
         sexo_valido = False
         while not sexo_valido:
@@ -191,7 +208,7 @@ def atualizar_medico():
 
         telefone_valido = False
         while not telefone_valido:
-            telefone = input("Insira o novo telefone no formato (11) 91111-1111: ")
+            telefone = input("Insira o novo telefone [(11) 91111-1111]: ")
             if validar_telefone(telefone):
                 telefone_valido = True
             else:
@@ -199,7 +216,7 @@ def atualizar_medico():
 
         cpf_valido = False
         while not cpf_valido:
-            cpf = input("Insira o novo CPF no formato 111.111.111-11: ")
+            cpf = input("Insira o novo CPF [111.111.111-11]: ")
             if validar_cpf(cpf):
                 cpf_valido = True
             else:
@@ -207,9 +224,11 @@ def atualizar_medico():
 
         medicos[crm] = [nome, email, especializacao, idade, sexo, telefone, cpf, True]
 
-        print("\n+==============================================+")
-        print("| x Dados do médico atualizados com sucesso    |")
-        print("+==============================================+\n")
+        print("""\n+==============================================+
+|                                              |
+| x Médico atualizado com sucesso              |
+|                                              |
++==============================================+\n""")
     else:
         print("Médico não encontrado!")
     
@@ -226,9 +245,11 @@ def excluir_medico():
         
         if opc_exclusao == 'S':
             medicos[crm][7] = False
-            print("\n+==============================================+")
-            print("| x Médico excluído com sucesso (Soft Delete)  |")
-            print("+==============================================+\n")
+            print("""\n+==============================================+
+|                                              |
+| x Médico excluído com sucesso                |
+|                                              |
++==============================================+\n""")
         else:
             print("Exclusão cancelada!")
     else:
@@ -256,21 +277,21 @@ def listar_medicos_especialidade():
     os.system("cls" if os.name == "nt" else "clear")
     print("[MÉDICOS POR ESPECIALIZAÇÃO]\n")
     
-    especializacao_buscada = input("Insira a especialização que deseja procurar: ")
+    especializacao = input("Insira a especialização que deseja procurar: ")
     encontrou_medico = False
     
-    print(f"\nMédicos encontrados na especialização: {especializacao_buscada.title()}\n")
+    print(f"\nMédicos encontrados na especialização: {especializacao.title()}\n")
     print(f"{'NOME':<22} | {'CRM':<10} | {'CPF':<15} | {'EMAIL':<25} | {'TELEFONE'}")
     print('-' * 105)
     
     for crm, dados in medicos.items():
-        if dados[7] == True and dados[2].upper() == especializacao_buscada.upper():
+        if dados[7] == True and dados[2].upper() == especializacao.upper():
             print(f"{dados[0]:<22} | {crm:<10} | {dados[6]:<15} | {dados[1]:<25} | {dados[5]}")
             print('-' * 105)
             encontrou_medico = True
             
     if not encontrou_medico:
-        print(f"Não foram encontrados médicos ativos para a especialização '{especializacao_buscada}'.")
+        print(f"Não há médicos especializados em '{especializacao}'.")
         print('-' * 105)
         
     input("\nPressione [ENTER] para voltar")
