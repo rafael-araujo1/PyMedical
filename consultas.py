@@ -274,7 +274,6 @@ def listar_consultas_por_periodo():
     os.system("cls" if os.name == "nt" else "clear")
     print("[CONSULTAS POR PERÍODO]\n")
 
-    # Coletar data inicial
     inicio_valido = False
     while not inicio_valido:
         data_inicio_str = input("Insira a data inicial (DD/MM/AAAA): ")
@@ -284,7 +283,6 @@ def listar_consultas_por_periodo():
         except ValueError:
             print("Erro: Formato de data inválido ou data inexistente.")
 
-    # Coletar data final
     fim_valido = False
     while not fim_valido:
         data_fim_str = input("Insira a data final (DD/MM/AAAA): ")
