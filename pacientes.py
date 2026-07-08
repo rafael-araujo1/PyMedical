@@ -15,10 +15,13 @@ def validar_cpf(cpf):
     return re.match(r"^\d{3}\.\d{3}\.\d{3}-\d{2}$", cpf)
 
 def carregar_pacientes():
-    # [Nome, Idade, Sexo, Telefone, CPF, Status_Ativo]
+    # Email: [Nome, Idade, Sexo, Telefone, CPF, Status_Ativo]
     dados_iniciais = {
         "michaelkyle@email.com" : ["Michael Kyle", 35, 'M', "(84) 91111-1111", "111.111.111-11", True],
-        "jaykyle@email.com" : ["Janet Kyle", 35, 'F', "(84) 92222-2222", "222.222.222-22", True]
+        "jaykyle@email.com" : ["Janet Kyle", 35, 'F', "(84) 92222-2222", "222.222.222-22", True],
+        "kylejr@email.com" : ["Michael Kyle Jr.", 17, 'M', "(84) 93333-3333", "333.333.333-33", True],
+        "clairekyle@email.com" : ["Claire Kyle", 15, 'F', "(84) 94444-4444", "444.444.444-44", True],
+        "kadykyle@email.com" : ["Kady Kyle", 6, 'F', "(84) 92222-2222", "555.555.555-55", True]
     }
     try:
         arq_pacientes = open("database/pacientes.txt", "rt")
@@ -64,9 +67,9 @@ def cadastrar_paciente():
     
     email_valido = False
     while not email_valido:
-        email = input("Insira o email (ex: nome@email.com): ")
+        email = input("Insira o email [nome@email.com]: ")
         if not validar_email(email):
-            print("Erro: O email deve conter '@' e '.' após o '@'.")
+            print("Erro: O email deve conter '@.'")
         elif email in pacientes:
             print("Erro: Este email já está cadastrado no sistema.")
         else:
@@ -81,7 +84,7 @@ def cadastrar_paciente():
             idade = int(idade_input)
             idade_valida = True
         else:
-            print("Erro: A idade deve ser um número inteiro maior que 0.")
+            print("Erro: A idade deve ser maior que 0.")
 
     sexo_valido = False
     while not sexo_valido:
@@ -93,7 +96,7 @@ def cadastrar_paciente():
 
     telefone_valido = False
     while not telefone_valido:
-        telefone = input("Insira o telefone no formato (11) 91111-1111: ")
+        telefone = input("Insira o telefone [(11) 91111-1111]: ")
         if validar_telefone(telefone):
             telefone_valido = True
         else:
@@ -101,7 +104,7 @@ def cadastrar_paciente():
 
     cpf_valido = False
     while not cpf_valido:
-        cpf = input("Insira o CPF no formato 111.111.111-11: ")
+        cpf = input("Insira o CPF [111.111.111-11]: ")
         if validar_cpf(cpf):
             cpf_valido = True
         else:
@@ -109,9 +112,11 @@ def cadastrar_paciente():
 
     pacientes[email] = [nome, idade, sexo, telefone, cpf, True]
     
-    print("\n+==============================================+")
-    print("| x Paciente cadastrado com sucesso            |")
-    print("+==============================================+\n")
+    print("""\n+==============================================+
+|                                              |
+| x Paciente cadastrado com sucesso            |
+|                                              |
++==============================================+\n""")
     input("Aperte [ENTER] para continuar")
 
 def buscar_paciente():
@@ -121,11 +126,12 @@ def buscar_paciente():
     
     if email in pacientes and pacientes[email][5] == True:
         os.system("cls" if os.name == "nt" else "clear")
-        print(f"[{pacientes[email][0]}]")
-        print(f"x CPF: {pacientes[email][4]}")
-        print(f"x Idade: {pacientes[email][1]}")
-        print(f"x Sexo: {pacientes[email][2]}")
-        print(f"x Telefone: {pacientes[email][3]}")
+        print(f"""[{pacientes[email][0]}]
+x CPF: {pacientes[email][4]}
+x Idade: {pacientes[email][1]}
+x Sexo: {pacientes[email][2]}
+x Telefone: {pacientes[email][3]}
+""")
     else:
         print("Paciente não encontrado!\n")
     input("Aperte [ENTER] para continuar")
@@ -138,7 +144,13 @@ def atualizar_paciente():
     
     if email in pacientes and pacientes[email][5] == True:
         os.system("cls" if os.name == "nt" else "clear")
-        print(f"[DADOS ATUAIS]\nNome: {pacientes[email][0]}\nIdade: {pacientes[email][1]}\nSexo: {pacientes[email][2]}\nTelefone: {pacientes[email][3]}\nCPF: {pacientes[email][4]}\n")
+        print(f"""[DADOS ATUAIS]
+Nome: {pacientes[email][0]}
+Idade: {pacientes[email][1]}
+Sexo: {pacientes[email][2]}
+Telefone: {pacientes[email][3]}
+CPF: {pacientes[email][4]}
+""")
         print("[NOVOS DADOS]")
         
         nome = input("Insira o novo nome: ")
@@ -150,7 +162,7 @@ def atualizar_paciente():
                 idade = int(idade_input)
                 idade_valida = True
             else:
-                print("Erro: A idade deve ser um número inteiro maior que 0.")
+                print("Erro: A idade deve ser maior que 0.")
 
         sexo_valido = False
         while not sexo_valido:
@@ -178,9 +190,11 @@ def atualizar_paciente():
 
         pacientes[email] = [nome, idade, sexo, telefone, cpf, True]
 
-        print("\n+==============================================+")
-        print("| x Dados do paciente atualizados com sucesso  |")
-        print("+==============================================+\n")
+        print("""\n+==============================================+
+|                                              |
+| x Paciente atualizado com sucesso            |
+|                                              |
++==============================================+\n""")
     else:
         print("Paciente não encontrado!")
     
@@ -197,9 +211,11 @@ def excluir_paciente():
         
         if opc_exclusao == 'S':
             pacientes[email][5] = False
-            print("\n+==============================================+")
-            print("| x Paciente excluído com sucesso              |")
-            print("+==============================================+\n")
+            print("""\n+==============================================+
+|                                              |
+| x Paciente excluído com sucesso              |
+|                                              |
++==============================================+\n""")
         else:
             print("Exclusão cancelada!")
     else:
